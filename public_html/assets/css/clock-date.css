@@ -1,13 +1,16 @@
 .clock{
-  border: 2px solid #000;
   display: inline-block;
   border-radius: 4px;
   font-size: 1.5em;
   text-align: center;
+  color: #353434;
 }
 .date{
-  border: 2px solid #000;
   display: inline-block;
   border-radius: 4px;
   margin-top: 1%;
+  color: #353434;
+}
+.cd-case{
+  border-radius: 1px solid grey;
 }
