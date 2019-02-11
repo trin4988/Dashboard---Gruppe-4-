@@ -40,7 +40,6 @@ var news = {
   init: function(){
     news.Tags = document.querySelectorAll('.news');
     for(var i = 0; i < news.Tags.length; i++){
-      news.Tags[i].style.overflow = 'hidden';
     }
     news.Tags = document.querySelectorAll('.news div');
     for(var i = 0; i < news.Tags.length; i++){
@@ -55,7 +54,7 @@ var news = {
       x ++;
       var W = news.Tags[i].parentElement.offsetWidth;
       var w = news.Tags[i].offsetWidth;
-      if((x/100) * W  > w) x = -W;
+      if((x/5000) * W  > w) x = -W;
       news.Tags[i].style.right = x + 'px';
     }
     requestAnimationFrame(this.loop.bind(this));
