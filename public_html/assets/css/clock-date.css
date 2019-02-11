@@ -14,3 +14,8 @@
 .cd-case{
   border-radius: 1px solid grey;
 }
+.news{
+  border: 1px solid lightgrey;
+   overflow: hidden;
+   white-space: nowrap;
+}
