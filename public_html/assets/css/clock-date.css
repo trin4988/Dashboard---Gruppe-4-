@@ -1,0 +1,21 @@
+.clock{
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 1.5em;
+  text-align: center;
+  color: #353434;
+}
+.date{
+  display: inline-block;
+  border-radius: 4px;
+  margin-top: 1%;
+  color: #353434;
+}
+.cd-case{
+  border-radius: 1px solid grey;
+}
+.news{
+  border: 1px solid lightgrey;
+   overflow: hidden;
+   white-space: nowrap;
+}
