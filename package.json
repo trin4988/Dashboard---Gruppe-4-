@@ -1,7 +1,7 @@
 {
   "name": "dashboard",
   "version": "1.0.0",
-  "description": "",
+  "description": "Opgave: Mediehusets Dashboard\r I denne opgave skal I lave en ny løsning til vores dashboards her på Mediehusets gang.",
   "main": "index.js",
   "dependencies": {
     "ejs": "^2.6.1",
@@ -13,5 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trin4988/Dashboard---Gruppe-4-.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/trin4988/Dashboard---Gruppe-4-/issues"
+  },
+  "homepage": "https://github.com/trin4988/Dashboard---Gruppe-4-#readme"
 }
