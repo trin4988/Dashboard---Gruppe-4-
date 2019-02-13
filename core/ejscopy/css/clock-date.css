@@ -21,7 +21,7 @@
    font-size: 2em;
    width: 66vw;
    height: 92.1%;
-   margin-top: 4vh;
+   margin-top: 1vh;
 }
 .news-text{
   margin-top: 1%;
@@ -32,11 +32,11 @@
   display: inline-block;
   height: 92.1%;
   text-align: center;
-  margin-top: 4vh;
+  margin-top: 1vh;
   margin-left: 2.5vw;
 }
 .logo{
-  width: 100%;
+  width: 60%;
   height: 90%;
 }
 .buttom-container{
