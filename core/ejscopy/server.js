@@ -4,19 +4,20 @@ var express = require('express');
 var app = express();
 var ejs = require('ejs');
 // server.use(express.static(__dirname + '/public_html'));
-
-// console.dir (ejs); 
+app.use(express.static(__dirname))
+// console.dir (ejs);
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
 // use res.render to load up an ejs view file
 
-// index page 
+// index page
 // app.get('/', function(req, res) {
 //     res.render('pages/index');
 // });
 
-// index page 
+
+// index page
 app.get('/', function(req, res) {
     var drinks = [
         { name: 'Bloody Mary', drunkness: 3 },
@@ -31,11 +32,11 @@ app.get('/', function(req, res) {
     });
 });
 
-// about page 
+// about page
 app.get('/about', function(req, res) {
     res.render('pages/about');
 });
 
-const paart = 4242; 
+const paart = 4242;
 app.listen(paart);
 console.log(paart + ' is the magic port');
