@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'FrutigerLTStd-Light';
+    // font-style: light;
+    font-weight: 400;
+    // src: local('FrutigerLTStd-Light'), local('FrutigerLTStd-Light');
+    src: local('FrutigerLTStd-Light'), local('FrutigerLTStd-Light'), url(../font/FrutigerLTStd-Light.ttf);
+      }
+  @font-face {
+    font-family: 'FrutigerLTStd-UltraBlack';
+    // font-style: light;
+    font-weight: 400;
+    // src: local('FrutigerLTStd-UltraBlack'), local('FrutigerLTStd-UltraBlack');
+    src: local('FrutigerLTStd-UltraBlack'), local('FrutigerLTStd-UltraBlack'), url(../font/FrutigerLTStd-UltraBlack.ttf);
+  }
+  
+
 body {
     margin: 0px;
     overflow: hidden;
