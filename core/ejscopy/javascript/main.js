@@ -60,4 +60,4 @@ var news = {
   }
 };
 window.addEventListener('load',news.init);
-news scroll function stop here
+//news scroll function stop here
