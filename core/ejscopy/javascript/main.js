@@ -34,15 +34,58 @@ document.getElementById('date').innerHTML = date.toDateString();
 
 
 
-var tWidth='900%';                  // width (in pixels)
-var tHeight='2em';                  // height (in pixels)
-var tcolour='#fff';               // background colour:
-var moStop=true;                     // pause on mouseover (true or false)
-var fontfamily = 'arial,sans-serif'; // font for content
-var tSpeed=4;                        // scroll speed (1 = slow, 5 = fast)
+function getStringWidth(str) {
 
-// enter your ticker content here (use \/ and \' in place of / and ' respectively)
-var content='news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla';
+    var span = document.createElement("span");
+    span.innerText = str;
+    span.style.visibility = "hidden";
 
-var cps=-tSpeed; var aw, mq; var fsz = parseInt(tHeight) - 4; function startticker(){if (document.getElementById) {var tick = '<div style="position:relative;width:'+tWidth+';height:'+tHeight+';overflow:hidden;background-color:'+tcolour+'"'; if (moStop) tick += ' onmouseover="cps=0" onmouseout="cps=-tSpeed"'; tick +='><div id="mq" style="position:absolute;left:0px;top:0px;font-family:'+fontfamily+';font-size:'+fsz+'px;white-space:nowrap;"><\/div><\/div>'; document.getElementById('news-text').innerHTML = tick; mq = document.getElementById("mq"); mq.style.left=(10+parseInt(tWidth))+"px"; mq.innerHTML='<span id="tx">'+content+'<\/span>'; aw = document.getElementById("tx").offsetWidth; righttime=setInterval("scrollticker()",50);}} function scrollticker(){mq.style.left = (parseInt(mq.style.left)>(-10 - aw)) ?
-mq.style.left = parseInt(mq.style.left)+cps+"px": parseInt(tWidth)+10+"px";} window.onload=startticker;
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(span);
+    var textWidth = span.offsetWidth;
+    body.removeChild(span);
+
+    return textWidth;
+}
+
+function getAnimationRule(animationName) {
+    var KEYFRAME_RULE = window.CSSRule.WEBKIT_KEYFRAMES_RULE ||
+        window.CSSRule.MOZ_KEYFRAMES_RULE ||
+        window.CSSRule.KEYFRAMES_RULE;
+
+    var stylesheets = document.styleSheets;
+    for (var i = 0 ; i < stylesheets.length ; i++) {
+        var rules = stylesheets[i].cssRules;
+        for (var j = 0 ; j < rules.length ; j++) {
+            var rule = rules[j];
+            if (rule.type == KEYFRAME_RULE && rule.name == "marquee") {
+                return rule;
+            }
+        }
+    }
+}
+
+function updateMarqueeAmplitude(element) {
+
+    var animationName = "marquee";
+    var marqueeRule = getAnimationRule(animationName);
+    if (null == marqueeRule) {
+        return;
+    }
+
+    // remove the old animation (if any)
+    element.style.webkitAnimationName = "none";
+
+    var textWidth = getStringWidth(element.innerText);
+
+    // update the values of our keyframe animation
+    marqueeRule.deleteRule("0%");
+    marqueeRule.deleteRule("100%");
+    marqueeRule.insertRule('0% { text-indent: ' + element.offsetWidth + 'px; }');
+    marqueeRule.insertRule('100% { text-indent: ' + -textWidth + 'px; }');
+
+    // re-assign the animation (to make it run)
+    element.style.webkitAnimationName = animationName;
+}
+
+updateMarqueeAmplitude(document.querySelector(".marquee"));
