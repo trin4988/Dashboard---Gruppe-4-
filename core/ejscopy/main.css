@@ -16,16 +16,27 @@
 }
 
 body {
+  /* display: grid;
+  grid-template-columns: repeat(12, 1fr); */
   margin: 0px;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.aktivityClass {
+
+.aktivity-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-radius: 5%;
   gap: 2%;
-  border: solid black 2px;
+  background-color: bisque;
+  
+}
+.aktivity-container div{
+  background-color: aquamarine;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 30px;
+
 }
 /*# sourceMappingURL=main.css.map */
