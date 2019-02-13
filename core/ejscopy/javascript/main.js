@@ -33,59 +33,31 @@ document.getElementById('date').innerHTML = date.toDateString();
 //stops here
 
 
-
-function getStringWidth(str) {
-
-    var span = document.createElement("span");
-    span.innerText = str;
-    span.style.visibility = "hidden";
-
-    var body = document.getElementsByTagName("body")[0];
-    body.appendChild(span);
-    var textWidth = span.offsetWidth;
-    body.removeChild(span);
-
-    return textWidth;
-}
-
-function getAnimationRule(animationName) {
-    var KEYFRAME_RULE = window.CSSRule.WEBKIT_KEYFRAMES_RULE ||
-        window.CSSRule.MOZ_KEYFRAMES_RULE ||
-        window.CSSRule.KEYFRAMES_RULE;
-
-    var stylesheets = document.styleSheets;
-    for (var i = 0 ; i < stylesheets.length ; i++) {
-        var rules = stylesheets[i].cssRules;
-        for (var j = 0 ; j < rules.length ; j++) {
-            var rule = rules[j];
-            if (rule.type == KEYFRAME_RULE && rule.name == "marquee") {
-                return rule;
-            }
-        }
+//news scroll function start here
+//give news element the class news
+var news = {
+  init: function(){
+    news.Tags = document.querySelectorAll('.news');
+    for(var i = 0; i < news.Tags.length; i++){
     }
-}
-
-function updateMarqueeAmplitude(element) {
-
-    var animationName = "marquee";
-    var marqueeRule = getAnimationRule(animationName);
-    if (null == marqueeRule) {
-        return;
+    news.Tags = document.querySelectorAll('.news div');
+    for(var i = 0; i < news.Tags.length; i++){
+      news.Tags[i].style.position = 'relative';
+      news.Tags[i].style.right = '-'+news.Tags[i].parentElement.offsetWidth+'px';
     }
-
-    // remove the old animation (if any)
-    element.style.webkitAnimationName = "none";
-
-    var textWidth = getStringWidth(element.innerText);
-
-    // update the values of our keyframe animation
-    marqueeRule.deleteRule("0%");
-    marqueeRule.deleteRule("100%");
-    marqueeRule.insertRule('0% { text-indent: ' + element.offsetWidth + 'px; }');
-    marqueeRule.insertRule('100% { text-indent: ' + -textWidth + 'px; }');
-
-    // re-assign the animation (to make it run)
-    element.style.webkitAnimationName = animationName;
-}
-
-updateMarqueeAmplitude(document.querySelector(".marquee"));
+    news.loop();
+  },
+  loop: function(){
+    for(var i = 0; i < news.Tags.length; i++){
+      var x = parseFloat(news.Tags[i].style.right);
+      x ++;
+      var W = news.Tags[i].parentElement.offsetWidth;
+      var w = news.Tags[i].offsetWidth;
+      if((x/5000) * W  > w) x = -W;
+      news.Tags[i].style.right = x + 'px';
+    }
+    requestAnimationFrame(this.loop.bind(this));
+  }
+};
+window.addEventListener('load',news.init);
+news scroll function stop here
