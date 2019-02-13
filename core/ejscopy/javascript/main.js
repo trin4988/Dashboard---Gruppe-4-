@@ -34,31 +34,15 @@ document.getElementById('date').innerHTML = date.toDateString();
 
 
 
-//news scroll function start here
-//give news element the class news
-var news = {
-  init: function(){
-    news.Tags = document.querySelectorAll('.news');
-    for(var i = 0; i < news.Tags.length; i++){
-    }
-    news.Tags = document.querySelectorAll('.news div');
-    for(var i = 0; i < news.Tags.length; i++){
-      news.Tags[i].style.position = 'relative';
-      news.Tags[i].style.right = '-'+news.Tags[i].parentElement.offsetWidth+'px';
-    }
-    news.loop();
-  },
-  loop: function(){
-    for(var i = 0; i < news.Tags.length; i++){
-      var x = parseFloat(news.Tags[i].style.right);
-      x ++;
-      var W = news.Tags[i].parentElement.offsetWidth;
-      var w = news.Tags[i].offsetWidth;
-      if((x/5000) * W  > w) x = -W;
-      news.Tags[i].style.right = x + 'px';
-    }
-    requestAnimationFrame(this.loop.bind(this));
-  }
-};
-window.addEventListener('load',news.init);
-//news scroll function stop here
+var tWidth='900%';                  // width (in pixels)
+var tHeight='2em';                  // height (in pixels)
+var tcolour='#fff';               // background colour:
+var moStop=true;                     // pause on mouseover (true or false)
+var fontfamily = 'arial,sans-serif'; // font for content
+var tSpeed=4;                        // scroll speed (1 = slow, 5 = fast)
+
+// enter your ticker content here (use \/ and \' in place of / and ' respectively)
+var content='news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla news bla';
+
+var cps=-tSpeed; var aw, mq; var fsz = parseInt(tHeight) - 4; function startticker(){if (document.getElementById) {var tick = '<div style="position:relative;width:'+tWidth+';height:'+tHeight+';overflow:hidden;background-color:'+tcolour+'"'; if (moStop) tick += ' onmouseover="cps=0" onmouseout="cps=-tSpeed"'; tick +='><div id="mq" style="position:absolute;left:0px;top:0px;font-family:'+fontfamily+';font-size:'+fsz+'px;white-space:nowrap;"><\/div><\/div>'; document.getElementById('news-text').innerHTML = tick; mq = document.getElementById("mq"); mq.style.left=(10+parseInt(tWidth))+"px"; mq.innerHTML='<span id="tx">'+content+'<\/span>'; aw = document.getElementById("tx").offsetWidth; righttime=setInterval("scrollticker()",50);}} function scrollticker(){mq.style.left = (parseInt(mq.style.left)>(-10 - aw)) ?
+mq.style.left = parseInt(mq.style.left)+cps+"px": parseInt(tWidth)+10+"px";} window.onload=startticker;
