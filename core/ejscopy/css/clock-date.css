@@ -36,7 +36,7 @@
   margin-left: 2.5vw;
 }
 .logo{
-  text-align: center; 
+  text-align: center;
   width: 60%;
   height: 90%;
   margin-left:2%;
@@ -53,4 +53,8 @@
 border-right: 1px solid lightgrey;
 text-align:center;
 margin-top:10px;
+}
+.youtubelink{
+position: absolute;
+right: 6.6%;
 }
