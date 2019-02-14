@@ -13,21 +13,32 @@ function buildBord () {
     ]; 
 
     let tidsstempel = new Date(1549354700*1000);
+  
+  
+
+    // timestmp = new Date().getTime() / 1000;
+    // timestmp = new Date(getTime());
+    toDay = new Date ();
+    toDayTime = toDay.getTime();
+    toDayStmp = new Date(toDayTime); 
+    console.log (toDayTime); 
+    console.log (toDayStmp);
 
     // Create a new JavaScript Date object based on the timestamp
 // multiplied by 1000 so that the argument is in milliseconds, not seconds.
 
 
 aar = tidsstempel.getFullYear();
-if (tidsstempel.getMonth() < 10) {
-    mnd = "0" + tidsstempel.getMonth();  
+mndx = tidsstempel.getMonth() + 1;
+if (mndx < 10) {
+    mnd = "0" + mndx;  
 } else {
-    mnd = tidsstempel.getMonth();
+    mnd = mndx;
 };
-if (tidsstempel.getDay() < 10) {
-    dag = "0" + tidsstempel.getDay();
+if (tidsstempel.getDate() < 10) {
+    dag = "0" + tidsstempel.getDate();
 } else {
-    dag = tidsstempel.getDay();
+    dag = tidsstempel.getDate();
 };
 
 
@@ -38,19 +49,55 @@ if (tidsstempel.getHours() < 10) {
     hours = tidsstempel.getHours();
 };
 if (tidsstempel.getMinutes() < 10) {
-    var minutes = "0" + tidsstempel.getMinutes();
+    minutes = "0" + tidsstempel.getMinutes();
 } else {
-    var minutes = tidsstempel.getMinutes();
+    minutes = tidsstempel.getMinutes();
 };
 if (tidsstempel.getSeconds() < 10) {
-    var seconds = "0" + tidsstempel.getSeconds();
+    seconds = "0" + tidsstempel.getSeconds();
 } else {
-    var seconds = tidsstempel.getSeconds();
+    seconds = tidsstempel.getSeconds();
 };
 
 // Will display time in dd.mm.yyyy 10:30:23 format
 var formattedTime = dag + '.' + mnd + '.' + aar + ' ' + hours + ':' + minutes + ':' + seconds;
-console.log ("formattteret tid: " + formattedTime); 
+console.log ("formattteret tid DB: " + formattedTime); 
+
+
+aar1 = toDayStmp.getFullYear();
+mndx = toDayStmp.getMonth() + 1;
+if (mndx < 10) {
+    mnd1 = "0" + mndx;  
+} else {
+    mnd1 = mndx;
+};
+if (toDayStmp.getDate() < 10) {
+    dag1 = "0" + toDayStmp.getDate();
+} else {
+    dag1 = toDayStmp.getDate();
+};
+
+
+
+if (toDayStmp.getHours() < 10) {
+    hours1 = "0" + toDayStmp.getHours();
+} else {
+    hours1 = toDayStmp.getHours();
+};
+if (toDayStmp.getMinutes() < 10) {
+    minutes1 = "0" + toDayStmp.getMinutes();
+} else {
+    minutes1 = toDayStmp.getMinutes();
+};
+if (toDayStmp.getSeconds() < 10) {
+    seconds1 = "0" + toDayStmp.getSeconds();
+} else {
+    seconds1 = toDayStmp.getSeconds();
+};
+
+// Will display time in dd.mm.yyyy 10:30:23 format
+var formattedTime1 = dag1 + '.' + mnd1 + '.' + aar1 + ' ' + hours1 + ':' + minutes1 + ':' + seconds1;
+console.log ("formattteret tid AKT: " + formattedTime1); 
     
     let actArr = [
                 ["A", ["N228","h1we080318","Praktisk web","1549354700"]],

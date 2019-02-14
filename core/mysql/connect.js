@@ -1,5 +1,7 @@
+// Opsætning af node til mysql
 const mysql = require('mysql');
 
+// Connect til database 
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
@@ -7,7 +9,11 @@ const con = mysql.createConnection({
     database: "dashboard"
 });
 
+// Sæt dagsdato som timestamp for at læse de rigtige nyheder og de rigtige aktiviteter
+timestmp = getDate().getTime() / 1000;
+
 con.connect((err) => {
+
     if (err) throw err;
     console.log("connected");
     var sql = "SELECT * FROM mh_activity where vcClassroom = 'N228'";
