@@ -13,6 +13,7 @@ function buildBord () {
     ]; 
 
     let tidsstempel = new Date(1549354700*1000);
+    console.log(tidsstempel);
   
   
 
