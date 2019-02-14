@@ -13,10 +13,21 @@
     src: local('FrutigerLTStd-UltraBlack'), local('FrutigerLTStd-UltraBlack'), url(../font/FrutigerLTStd-UltraBlack.ttf);
   }
   
-
+*{
+  margin: 0;
+  padding: 0;
+}
 body {
     margin: 0px;
     overflow: hidden;
     box-sizing: border-box;
+
+}
+.aktivityClass{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-radius: 5%;
+  gap: 2%;
+  border: solid black 2px;
 
 }
