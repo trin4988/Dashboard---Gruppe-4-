@@ -62,3 +62,23 @@ var news = {
 };
 window.addEventListener('load',news.init);
 //news scroll function stop here
+  var vcClass = "h1fiw080318";
+  var team = "";
+if (vcClass.substr(0,1) === "a") {
+  team = "efteruddannelser";
+}else if (vcClass.substr(0,3) === "iiw") {
+  team = "brobyg";
+}else if (vcClass.indexOf("we")>0) {
+  team = "Webudvikler";
+}else if (vcClass.indexOf("mg")>0) {
+  team = "Mediegrafiker";
+}else if (vcClass.indexOf("dm")>0) {
+  team = "Digitalmedia";
+}else if (vcClass.indexOf("gr")>0) {
+  team = "Grafisktekniker";
+}else if (vcClass.indexOf("fiw")>0) {
+  team = "gf1";
+}else {
+ team = vcClass;
+}
+console.log(team);
