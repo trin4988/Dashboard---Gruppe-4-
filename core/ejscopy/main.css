@@ -22,6 +22,11 @@ body {
   overflow: hidden;
   box-sizing: border-box;
 }
+.grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+}
 .st0{
   fill:#D83A46;
 }
@@ -110,23 +115,25 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 2%;
   position: relative;
-height: 90vh;
-width: 90vh;
-margin: 1% 0 0 1%;
+height: 87vh;
+width: 80vh;
+margin: 1% 0 1% 1%;
   
 }
 .aktivity-container div{
-  background-color: pink;
+  background-color: #FFF3D8;
   border-radius: 4px;
   text-align: center;
   font-size: 30px;
 
 }
 .map{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   position: absolute;
   height: 40vh;
   width: 48vw;
-  top:45.4%;
-  right:0;
+  top:41.4%;
+  right:3%;
 }
 /*# sourceMappingURL=main.css.map */

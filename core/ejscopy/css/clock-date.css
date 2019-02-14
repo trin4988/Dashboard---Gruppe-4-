@@ -36,14 +36,21 @@
   margin-left: 2.5vw;
 }
 .logo{
+  text-align: center; 
   width: 60%;
   height: 90%;
+  margin-left:2%;
 }
 .buttom-container{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  border: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
 }
 .footer-text{
   text-align: center;
+}
+.Logo{
+border-right: 1px solid lightgrey;
+text-align:center;
+margin-top:10px;
 }
