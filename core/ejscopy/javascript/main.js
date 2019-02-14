@@ -33,7 +33,6 @@ document.getElementById('date').innerHTML = date.toDateString();
 //stops here
 
 
-
 //news scroll function start here
 //give news element the class news
 var news = {
