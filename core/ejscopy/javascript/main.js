@@ -54,7 +54,7 @@ var news = {
       x ++;
       var W = news.Tags[i].parentElement.offsetWidth;
       var w = news.Tags[i].offsetWidth;
-      if((x/5000) * W  > w) x = -W;
+      if((x/3500) * W  > w) x = -W;
       news.Tags[i].style.right = x + 'px';
     }
     requestAnimationFrame(this.loop.bind(this));
