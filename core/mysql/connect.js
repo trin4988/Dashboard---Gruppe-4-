@@ -12,6 +12,11 @@ const con = mysql.createConnection({
 // Sæt dagsdato som timestamp for at læse de rigtige nyheder og de rigtige aktiviteter
 toDay = new Date ();
 toDayRead = toDay.getTime() / 1000;
+let actArr = [];
+let ai = 0;
+let newsArr = [];
+let ni = 0;
+let medium = "";
 
 con.connect((err) => {
 
@@ -67,7 +72,9 @@ con.connect((err) => {
                         fag = nu.vcName;
                     };
                     formattedTime = dag + '.' + mnd + '.' + aar + ' ' + hours + ':' + minutes + ':' + seconds;
-                    console.log ("a-fag: " + nu.vcClass + " " + nu.vcClassroom + " " + fag + " " + formattedTime);
+                    actArr[ai] = ["A", [nu.vcClassroom,nu.vcClass,fag,formattedTime]]; 
+                    ai += 1;
+                  
                 };
             });
 
@@ -120,7 +127,9 @@ con.connect((err) => {
                         fag = nxt.vcName;
                     };
                     formattedTime = dag + '.' + mnd + '.' + aar + ' ' + hours + ':' + minutes + ':' + seconds;
-                    console.log ("n-fag: " + nxt.vcClass + " " + nxt.vcClassroom + " - " + fag + " " + formattedTime);
+                    actArr[ai] = ["F", [nxt.vcClassroom,nxt.vcClass,fag,formattedTime]]; 
+                    ai += 1;
+              
                 };
             });
         }
@@ -132,7 +141,8 @@ con.connect((err) => {
     con.query(sql, (err, nyheder, fields) => {
         if (err) throw err; 
         for (var nyhed of nyheder) {
-            console.log ("nyhed: " + nyhed.txContent);
+            newsArr[ni] = [nyhed.vcTitle, nyhed.txContent]; 
+            ni += 1;
         };
     });
 
