@@ -22,10 +22,13 @@
    width: 70vw;
    height: 92.1%;
    margin-top: 1vh;
+   border-right: 1px solid lightgrey;
+
 }
 .news-text{
   margin-top: 1%;
   font-family: 'Open Sans', sans-serif;
+
 }
 .clock-date{
   width: 11vw;
