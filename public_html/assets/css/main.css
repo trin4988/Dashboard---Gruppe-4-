@@ -1,6 +1,32 @@
+@font-face {
+  font-family: 'FrutigerLTStd-Light';
+  font-weight: 400;
+  src: local("FrutigerLTStd-Light"), local("FrutigerLTStd-Light"), url(../font/FrutigerLTStd-Light.ttf);
+}
+
+@font-face {
+  font-family: 'FrutigerLTStd-UltraBlack';
+  font-weight: 400;
+  src: local("FrutigerLTStd-UltraBlack"), local("FrutigerLTStd-UltraBlack"), url(../font/FrutigerLTStd-UltraBlack.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0px;
   overflow: hidden;
   box-sizing: border-box;
+
+}
+
+.aktivityClass {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-radius: 5%;
+  gap: 2%;
+  border: solid black 2px;
 }
 /*# sourceMappingURL=main.css.map */
