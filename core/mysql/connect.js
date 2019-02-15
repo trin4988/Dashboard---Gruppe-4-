@@ -151,8 +151,10 @@ con.connect((err) => {
     sql = " select * from medie where iIsActive = 1 order by daCreated desc limit 1"
     con.query(sql, (err, videoer, fields) => {
         if (err) throw err; 
-        for (var video of videoer) {
-            console.log ("video: " + video.vcRef + " " + video.vcFile);
-        };
+        medium = videoer;
+        // for (var video of videoer) {
+        //     console.log ("video: " + video.vcRef + " " + video.vcFile);
+        // };
+        console.log (medium); 
     });
 });
